@@ -5,7 +5,7 @@ import {
   getAnimeInfo,
   getAnimePictures,
   getAnimeRecommendation,
-  getAnimeStatics,
+  getAnimeStatistics,
   getAnimeStreamingLink,
 } from "@/lib/jikan";
 import AnimeClient from "./AnimeClient"; // client component
@@ -34,7 +34,7 @@ export default async function AnimeDetail({ params }) {
 
   try {
     await delay(400);
-    const res = await getAnimeStatics({ id });
+    const res = await getAnimeStatistics({ id });
     stats = res.data;
   } catch (err) {
     console.error("Error fetching stats", err);
