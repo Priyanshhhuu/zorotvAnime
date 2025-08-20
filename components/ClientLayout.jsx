@@ -216,18 +216,6 @@ export default function ClientLayout({ children }) {
         {/* A-Z List */}
         <div className="mt-8 border-t border-white/10 pt-4 text-center">
           <div className="flex flex-wrap gap-2 justify-center text-sm">
-            <Link
-              href="/az-list/all"
-              className="hover:text-green-400 transition"
-            >
-              All
-            </Link>
-            <Link
-              href="/az-list/0-9"
-              className="hover:text-green-400 transition"
-            >
-              0–9
-            </Link>
             {Array.from("abcdefghijklmnopqrstuvwxyz").map((char) => (
               <Link
                 key={char}

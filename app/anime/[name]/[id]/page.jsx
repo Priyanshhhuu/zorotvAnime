@@ -13,6 +13,44 @@ import AnimeClient from "./AnimeClient"; // client component
 // small delay helper
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
+// Metadata for the page
+export function generateMetadata({ params }) {
+  let { name } = params;
+
+  // Decode URL-encoded characters (e.g., %20 → space)
+  name = decodeURIComponent(name);
+
+  // Replace hyphens with spaces (e.g., one-piece → one piece)
+  const formattedName = name.replace(/-/g, " ");
+
+  return {
+    title: `${formattedName} - Zoro Anime`,
+    description: `Explore details, characters, stats, and recommendations for ${formattedName} on Zoro Anime.`,
+    keywords: [formattedName, "anime info", "anime details", "Zoro Anime"],
+    openGraph: {
+      title: `${formattedName} - Zoro Anime`,
+      description: `Explore details, characters, stats, and recommendations for ${formattedName} on Zoro Anime.`,
+      url: `https://zorotv.run/anime/${encodeURIComponent(name)}`,
+      siteName: "Zoro Anime",
+      images: [
+        {
+          url: "/zoro.png",
+          width: 800,
+          height: 1200,
+          alt: formattedName,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${formattedName} - Zoro Anime`,
+      description: `Explore details, characters, stats, and recommendations for ${formattedName} on Zoro Anime.`,
+      images: ["/zoro.png"],
+    },
+  };
+}
+
 export default async function AnimeDetail({ params }) {
   const { id } = params;
   const { data: anime } = await getAnimeInfo({ id });

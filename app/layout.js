@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Zoro Anime - Watch Free Anime Online",
+    default: "Zoro Anime - Anime Database & Information",
     template: "%s ",
   },
   description:
-    "Stream free high-quality anime on Zoro Anime. Watch subbed/dubbed latest, trending & upcoming series—no ads, no signup, just pure anime fun!",
+    "Explore anime details, characters, statistics, reviews, genres, and trailers. Stay updated with trending and upcoming anime on Zoro Anime.",
   icons: {
     icon: "/zoro.png",
     shortcut: "/zoro.png",
@@ -85,7 +85,7 @@ export const metadata = {
         url: "https://zorotv.run/zoro.png",
         width: 1200,
         height: 630,
-        alt: "Zoro Anime - Watch Free Anime Online",
+        alt: "Zoro Anime - Anime Database & Info",
       },
     ],
     locale: "en_US",
@@ -93,8 +93,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zoro Anime - Watch Free Anime Online",
-    description: "Stream HD anime episodes for free. No signup. No ads.",
+    title: "Zoro Anime - Anime Database & Info",
+    description:
+      "Explore anime details, characters, statistics, reviews, genres, and trailers.",
     site: "@zoroanime",
     creator: "@zoroanime",
     images: ["https://zorotv.run/og-banner.jpg"],

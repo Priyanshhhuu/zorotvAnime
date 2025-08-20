@@ -51,7 +51,7 @@ export default function SearchClient({
       ) : results.length ? (
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {results.map((anime) => (
-            <AnimeCard key={anime.mal_id} anime={anime} />
+            <AnimeCard key={`${anime.mal_id}/${anime.title}`} anime={anime} />
           ))}
         </div>
       ) : (

@@ -3,6 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const makeSlug = (title) => {
+  return title.toLowerCase().replace(/\s+/g, "-");
+};
 export default function TopCharacters({ data }) {
   if (!data?.length) return null;
 
@@ -19,7 +22,7 @@ export default function TopCharacters({ data }) {
         {data.slice(0, 10).map((char) => (
           <Link
             key={char.mal_id}
-            href={`/character/${char.mal_id}`}
+            href={`/character/${makeSlug(char.name)}/${char.mal_id}`}
             className="min-w-[180px] max-w-[200px]  backdrop-blur-md rounded-2xl shadow-md overflow-hidden hover:scale-[1.05] transition-transform"
           >
             {/* Character Image */}
