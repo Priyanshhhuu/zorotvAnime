@@ -4,10 +4,14 @@ import { shimmer, toBase64 } from "@/lib/shimmer";
 import Image from "next/image";
 import Link from "next/link";
 
+const makeSlug = (title) => {
+  return title.toLowerCase().replace(/\s+/g, "-");
+};
+
 export default function AnimeCard({ anime }) {
   return (
     <Link
-      href={`/anime/${anime.title}/${anime.mal_id}`}
+      href={`/anime/${makeSlug(anime.title)}/${anime.mal_id}`}
       className="relative min-w-[180px] w-[180px] rounded-2xl overflow-hidden backdrop-blur-md shadow-md hover:scale-105 transition-transform"
     >
       {/* Image */}

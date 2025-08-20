@@ -3,6 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const makeSlug = (title) => {
+  return title.toLowerCase().replace(/\s+/g, "-");
+};
+
 export default function UpcomingCard({ anime }) {
   const startDate =
     anime.aired?.prop?.from?.day &&
@@ -13,7 +17,7 @@ export default function UpcomingCard({ anime }) {
 
   return (
     <Link
-      href={`/anime/${anime.mal_id}`}
+      href={`/anime/${makeSlug(anime.title)}/${anime.mal_id}`}
       className="relative min-w-[180px] w-[180px] rounded-2xl overflow-hidden backdrop-blur-md shadow-md hover:scale-105 transition-transform"
     >
       {/* Image */}

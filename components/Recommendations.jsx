@@ -3,6 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const makeSlug = (title) => {
+  return title.toLowerCase().replace(/\s+/g, "-");
+};
+
 export default function Recommendations({ data }) {
   if (!data?.length) return null;
 
@@ -13,7 +17,7 @@ export default function Recommendations({ data }) {
         {data.slice(0, 10).map((rec) => (
           <Link
             key={rec.entry.mal_id}
-            href={`/anime/${rec.entry.mal_id}`}
+            href={`/anime/${makeSlug(rec.entry.title)}/${rec.entry.mal_id}`}
             className="flex-shrink-0 w-40 group"
           >
             <div className="relative w-40 h-56 rounded-lg overflow-hidden">

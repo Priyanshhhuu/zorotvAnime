@@ -3,6 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const makeSlug = (title) => {
+  return title.toLowerCase().replace(/\s+/g, "-");
+};
+
 export default function AnimeReviews({ data }) {
   if (!data?.length) return null;
 
@@ -21,7 +25,9 @@ export default function AnimeReviews({ data }) {
           >
             {/* Anime Side Banner */}
             <Link
-              href={`/anime/${review.entry.title}/${review.entry.mal_id}`}
+              href={`/anime/${makeSlug(review.entry.title)}/${
+                review.entry.mal_id
+              }`}
               className="relative w-full md:w-48 h-48 md:h-auto shrink-0"
             >
               <Image
